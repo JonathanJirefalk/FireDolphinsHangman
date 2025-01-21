@@ -2,8 +2,8 @@ import java.util.Scanner;
 
 public class StartGame {
 
-    public String playerOne;
-    public String playerTwo;
+    public static String playerOne;
+    public static String playerTwo;
 
     Scanner scanner = new Scanner(System.in);
 
