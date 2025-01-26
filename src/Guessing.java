@@ -2,10 +2,17 @@ import java.util.Scanner;
 
 public class Guessing
 {
+    StartGame startGame = new StartGame();
+    Choosingwords choosingwords = new Choosingwords();
+
+
     Scanner scanner = new Scanner(System.in);
 
     public int guessingTurn = 0;
     char guess;
+
+    String wordOneGuessed;
+    String wordTwoGuessed;
 
     public void guessLetter(){
 
@@ -13,18 +20,18 @@ public class Guessing
 
         if (guessingTurn == 0){
 
-            System.out.println(StartGame.playerOne + "'s turn guess a letter!");
+            System.out.println(startGame.playerOne + "'s turn guess a letter!");
             guess = scanner.next().charAt(0);
             guessingTurn = 1;
-            String word = Choosingwords.word2;
+            String word = choosingwords.word2;
             checkGuess(word);
 
         }else if (guessingTurn == 1){
 
-            System.out.println(StartGame.playerTwo + "'s turn guess a letter!");
+            System.out.println(startGame.playerTwo + "'s turn guess a letter!");
             guess = scanner.next().charAt(0);
             guessingTurn = 0;
-            String word = Choosingwords.word1;
+            String word = choosingwords.word1;
             checkGuess(word);
         }
     }
@@ -38,6 +45,12 @@ public class Guessing
                 System.out.println("Correct Guess");
             }
         }
+        displayGuess();
         guessLetter();
+    }
+
+    public void displayGuess(){
+
+
     }
 }
