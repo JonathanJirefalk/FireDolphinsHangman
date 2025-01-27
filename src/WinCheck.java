@@ -1,8 +1,8 @@
 public class WinCheck {
 
-    static Guessing guessing = new Guessing();
+    Guessing guessing = new Guessing();
 
-    public void compareWords(char[] guessedWord, String playerWord, String playerName){
+    public void compareWords(char[] guessedWord, String playerWord, String playerName, int turn){
 
         StringBuilder tempString = new StringBuilder();
 
@@ -14,6 +14,10 @@ public class WinCheck {
             System.out.println();
             System.out.println("Game Over, " + playerName + " wins!");
             guessing.setTurn(3);
+        }else if(turn == 0){
+            guessing.setTurn(0);
+        }else{
+            guessing.setTurn(1);
         }
     }
 }
