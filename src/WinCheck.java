@@ -6,8 +6,8 @@ public class WinCheck {
 
         StringBuilder tempString = new StringBuilder();
 
-        for (int i = 0; i < guessedWord.length; i++) {
-            tempString.append(guessedWord[i]);
+        for (char c : guessedWord) {
+            tempString.append(c);
         }
 
         if(tempString.toString().equals(playerWord)){
