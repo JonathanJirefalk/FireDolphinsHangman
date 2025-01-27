@@ -54,13 +54,13 @@ public class Layout {
         }
 
         System.out.println();
-        displayGuessedWord(guessedWord1, startGame.playerOne);
-        displayGuessedWord(guessedWord2, startGame.playerTwo);
+        displayGuessedWord(guessedWord1, StartGame.playerOne);
+        displayGuessedWord(guessedWord2, StartGame.playerTwo);
 
         if(turn == 0){
-            winCheck.compareWords(guessedWord1, word, startGame.playerTwo, 0);
+            winCheck.compareWords(guessedWord1, word, StartGame.playerTwo, 0);
         }else{
-            winCheck.compareWords(guessedWord2, word, startGame.playerOne, 1);
+            winCheck.compareWords(guessedWord2, word, StartGame.playerOne, 1);
 
         }
 
