@@ -9,7 +9,6 @@ public class Layout {
 
     StartGame startGame = new StartGame();
     WinCheck winCheck = new WinCheck();
-    Guessing guessing = new Guessing();
     Scanner scanner = new Scanner(System.in);
     public void initializeGuesses(String word1, String word2) {
         guessedWord1 = new char[word1.length()];
@@ -124,6 +123,10 @@ public class Layout {
         if(isDuplicate){
             System.out.println("Duplicate Guess, please input a new letter!");
             return checkDuplicateGuess(scanner.next().toLowerCase().charAt(0), turn);
+        }else if(!Character.isLetter(guess)){
+            System.out.println("Guess needs to be a letter, please try again!");
+            return checkDuplicateGuess(scanner.next().toLowerCase().charAt(0), turn);
+
         }else{
             return guess;
         }
