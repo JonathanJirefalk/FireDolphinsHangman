@@ -2,14 +2,16 @@ import java.util.Scanner;
 
 public class Guessing
 {
-    Scanner scanner = new Scanner(System.in);
+    static Scanner scanner = new Scanner(System.in);
     Layout layout = new Layout();
     Choosingwords choosingwords = new Choosingwords();
 
-    public int guessingTurn = 0;
+    public static int guessingTurn = 0;
     char guess;
 
     public void guessLetter(){
+
+        System.out.println(guessingTurn);
 
         if (guessingTurn == 0){
 
@@ -26,15 +28,17 @@ public class Guessing
             guessingTurn = 0;
 
             checkGuess(guess, 1);
+        }else{
+            System.out.println("Game Over!");
         }
     }
 
     public void checkGuess(char guess, int turn){
 
         if(turn == 0){
-            layout.checkGuessedWord(layout.getGuessedWord2(), guess, 1, choosingwords.word2);
+            layout.checkGuessedWord(guess, 1, choosingwords.word2);
         }else{
-            layout.checkGuessedWord(layout.getGuessedWord1(), guess, 0, choosingwords.word1);
+            layout.checkGuessedWord(guess, 0, choosingwords.word1);
         }
 
         guessLetter();

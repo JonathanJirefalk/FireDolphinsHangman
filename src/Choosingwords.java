@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class Choosingwords {
@@ -19,8 +20,7 @@ public class Choosingwords {
         word2 = scanner.nextLine();
 
         layout.initializeGuesses(word1, word2);
-
-        System.out.println("Player 1 entered: " + word1);
-        System.out.println("Player 2 entered: " + word2);
+        layout.displayGuessedWord(layout.getGuessedWord1(), startGame.playerOne);
+        layout.displayGuessedWord(layout.getGuessedWord2(), startGame.playerTwo);
     }
 }
