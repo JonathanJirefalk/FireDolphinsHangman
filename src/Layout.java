@@ -1,6 +1,11 @@
- public class Layout {
+import java.sql.SQLOutput;
+
+public class Layout {
     private static char[] guessedWord1;
     private static char[] guessedWord2;
+
+    StartGame startGame = new StartGame();
+    WinCheck winCheck = new WinCheck();
 
     public void initializeGuesses(String word1, String word2) {
         guessedWord1 = new char[word1.length()];
@@ -21,23 +26,36 @@
         return guessedWord2;
     }
 
-    public void checkGuessedWord(char[] guessedWord, char guess, int turn, String word) {
-        for (int i = 0; i < guessedWord.length; i++) {
-            if (word.charAt(i) == guess) {
-                guessedWord[i] = guess;
-            }
-        }
+    public void checkGuessedWord(char guess, int turn, String word) {
+
 
         if(turn == 0){
-            guessedWord1 = guessedWord;
-            displayGuessedWord(guessedWord);
+            for (int i = 0; i < guessedWord1.length; i++) {
+                if (word.charAt(i) == guess) {
+                    guessedWord1[i] = guess;
+                }
+            }
+            winCheck.compareWords(guessedWord1, word, startGame.playerTwo);
+
         }else{
-            guessedWord2 = guessedWord;
-            displayGuessedWord(guessedWord);
+            for (int i = 0; i < guessedWord2.length; i++) {
+                if (word.charAt(i) == guess) {
+                    guessedWord2[i] = guess;
+                }
+            }
+            winCheck.compareWords(guessedWord2, word, startGame.playerOne);
         }
+
+        displayGuessedWord(guessedWord1, startGame.playerOne);
+        displayGuessedWord(guessedWord2, startGame.playerTwo);
+
+
     }
 
-    public void displayGuessedWord(char[] guessedWord) {
+    public void displayGuessedWord(char[] guessedWord, String playerName) {
+
+        System.out.print(playerName + "'s word:     ");
+
         for (char c : guessedWord) {
             System.out.print(c + " ");
         }
