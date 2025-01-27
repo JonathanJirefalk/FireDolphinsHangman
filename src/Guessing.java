@@ -3,10 +3,10 @@ import java.util.Scanner;
 public class Guessing
 {
     static Scanner scanner = new Scanner(System.in);
-    Layout layout = new Layout();
+    static Layout layout = new Layout();
     Choosingwords choosingwords = new Choosingwords();
 
-    int guessingTurn = 0;
+    static int guessingTurn = 0;
     char guess;
 
     public void setTurn(int turn){
@@ -20,18 +20,20 @@ public class Guessing
         if (guessingTurn == 0){
 
             System.out.println(StartGame.playerOne + "'s turn guess a letter!");
-            guess = scanner.next().charAt(0);
-            guessingTurn = 1;
+            guess = scanner.next().toLowerCase().charAt(0);
 
-            checkGuess(guess, 0);
+            char finalGuess = layout.checkDuplicateGuess(guess, guessingTurn);
+
+            checkGuess(finalGuess, 0);
 
         }else if (guessingTurn == 1){
 
             System.out.println(StartGame.playerTwo + "'s turn guess a letter!");
-            guess = scanner.next().charAt(0);
-            guessingTurn = 0;
+            guess = scanner.next().toLowerCase().charAt(0);
 
-            checkGuess(guess, 1);
+            char finalGuess = layout.checkDuplicateGuess(guess, guessingTurn);
+
+            checkGuess(finalGuess, 1);
         }
     }
 

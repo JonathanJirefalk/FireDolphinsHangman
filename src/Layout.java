@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Layout {
     private static char[] guessedWord1;
     private static char[] guessedWord2;
@@ -7,8 +9,8 @@ public class Layout {
 
     StartGame startGame = new StartGame();
     WinCheck winCheck = new WinCheck();
-
-
+    Guessing guessing = new Guessing();
+    Scanner scanner = new Scanner(System.in);
     public void initializeGuesses(String word1, String word2) {
         guessedWord1 = new char[word1.length()];
         guessedWord2 = new char[word2.length()];
@@ -55,8 +57,12 @@ public class Layout {
         displayGuessedWord(guessedWord1, startGame.playerOne);
         displayGuessedWord(guessedWord2, startGame.playerTwo);
 
-        winCheck.compareWords(guessedWord1, word, startGame.playerTwo);
-        winCheck.compareWords(guessedWord2, word, startGame.playerOne);
+        if(turn == 0){
+            winCheck.compareWords(guessedWord1, word, startGame.playerTwo, 0);
+        }else{
+            winCheck.compareWords(guessedWord2, word, startGame.playerOne, 1);
+
+        }
 
     }
 
@@ -90,5 +96,36 @@ public class Layout {
 
         System.out.println();
 
+    }
+
+    public char checkDuplicateGuess(char guess, int turn) {
+
+        boolean isDuplicate = false;
+
+        if(turn == 0) {
+
+            for (int i = 0; i < player1GuessedLetters.length(); i++) {
+                if (player1GuessedLetters.charAt(i) == guess) {
+                    isDuplicate = true;
+                    break;
+                }
+            }
+
+        }else{
+
+            for (int i = 0; i < player2GuessedLetters.length(); i++) {
+                if (player2GuessedLetters.charAt(i) == guess) {
+                    isDuplicate = true;
+                    break;
+                }
+            }
+        }
+
+        if(isDuplicate){
+            System.out.println("Duplicate Guess, please input a new letter!");
+            return checkDuplicateGuess(scanner.next().toLowerCase().charAt(0), turn);
+        }else{
+            return guess;
+        }
     }
 }
