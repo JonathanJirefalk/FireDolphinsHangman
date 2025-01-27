@@ -1,5 +1,3 @@
-import java.sql.SQLOutput;
-
 public class Layout {
     private static char[] guessedWord1;
     private static char[] guessedWord2;

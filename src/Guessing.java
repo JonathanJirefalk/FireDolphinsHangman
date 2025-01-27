@@ -11,8 +11,6 @@ public class Guessing
 
     public void guessLetter(){
 
-        System.out.println(guessingTurn);
-
         if (guessingTurn == 0){
 
             System.out.println(StartGame.playerOne + "'s turn guess a letter!");
@@ -28,8 +26,6 @@ public class Guessing
             guessingTurn = 0;
 
             checkGuess(guess, 1);
-        }else{
-            System.out.println("Game Over!");
         }
     }
 
