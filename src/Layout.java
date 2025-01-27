@@ -7,7 +7,6 @@ public class Layout {
     String player1GuessedLetters = "";
     String player2GuessedLetters = "";
 
-    StartGame startGame = new StartGame();
     WinCheck winCheck = new WinCheck();
     Scanner scanner = new Scanner(System.in);
 
