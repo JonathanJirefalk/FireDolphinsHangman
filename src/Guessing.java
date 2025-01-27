@@ -6,10 +6,16 @@ public class Guessing
     Layout layout = new Layout();
     Choosingwords choosingwords = new Choosingwords();
 
-    public static int guessingTurn = 0;
+    int guessingTurn = 0;
     char guess;
 
+    public void setTurn(int turn){
+        guessingTurn = turn;
+    }
+
     public void guessLetter(){
+
+        System.out.println();
 
         if (guessingTurn == 0){
 

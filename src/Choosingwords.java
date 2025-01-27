@@ -15,8 +15,12 @@ public class Choosingwords {
         System.out.println(startGame.playerOne + ", enter a word");
         word1 = scanner.nextLine();
 
+        System.out.println();
+
         System.out.println(startGame.playerTwo + ", enter a word");
         word2 = scanner.nextLine();
+
+        System.out.println();
 
         layout.initializeGuesses(word1, word2);
         layout.displayGuessedWord(layout.getGuessedWord1(), startGame.playerOne);

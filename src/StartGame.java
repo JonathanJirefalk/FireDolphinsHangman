@@ -11,7 +11,9 @@ public class StartGame {
 
         System.out.println("Player 1, please insert your name!");
         playerOne = scanner.next();
+        System.out.println();
         System.out.println("Player 2, please insert your name!");
         playerTwo = scanner.next();
+        System.out.println();
     }
 }
