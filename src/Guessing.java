@@ -2,9 +2,8 @@ import java.util.Scanner;
 
 public class Guessing
 {
-    static Scanner scanner = new Scanner(System.in);
+    Scanner scanner = new Scanner(System.in);
     static Layout layout = new Layout();
-    Choosingwords choosingwords = new Choosingwords();
 
     static int guessingTurn = 0;
     char guess;
@@ -40,9 +39,9 @@ public class Guessing
     public void checkGuess(char guess, int turn){
 
         if(turn == 0){
-            layout.checkGuessedWord(guess, 1, choosingwords.word2);
+            layout.checkGuessedWord(guess, 1, Choosingwords.word2);
         }else{
-            layout.checkGuessedWord(guess, 0, choosingwords.word1);
+            layout.checkGuessedWord(guess, 0, Choosingwords.word1);
         }
 
         guessLetter();

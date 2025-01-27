@@ -5,7 +5,7 @@ public class StartGame {
     public static String playerOne;
     public static String playerTwo;
 
-    static Scanner scanner = new Scanner(System.in);
+    Scanner scanner = new Scanner(System.in);
 
     public void chooseNames(){
 

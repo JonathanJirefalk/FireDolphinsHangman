@@ -10,6 +10,7 @@ public class Layout {
     StartGame startGame = new StartGame();
     WinCheck winCheck = new WinCheck();
     Scanner scanner = new Scanner(System.in);
+
     public void initializeGuesses(String word1, String word2) {
         guessedWord1 = new char[word1.length()];
         guessedWord2 = new char[word2.length()];
@@ -83,12 +84,12 @@ public class Layout {
             player2GuessedLetters += guess;
         }
 
-        System.out.print(startGame.playerOne + " guessed letters:     ");
+        System.out.print(StartGame.playerOne + " guessed letters:     ");
         for (char c : player1GuessedLetters.toCharArray()) {
             System.out.print(c + "  ");
         }
         System.out.println();
-        System.out.print(startGame.playerTwo + " guessed letters:     ");
+        System.out.print(StartGame.playerTwo + " guessed letters:     ");
         for (char c : player2GuessedLetters.toCharArray()) {
             System.out.print(c + "  ");
         }
